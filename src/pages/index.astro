@@ -5,6 +5,18 @@ import Card from '../components/Card.astro';
 const response = await fetch('https://api.github.com/repos/pwndbg/pwndbg/releases/latest');
 const data = await response.json();
 const latest_tag_name = data.tag_name;
+
+import { marked } from 'marked';
+
+const readme_content = await fetch('https://raw.githubusercontent.com/pwndbg/pwndbg/dev/README.md');
+const markdown = await readme_content.text();
+
+// Extract the content starting from "pwndbg" to the end
+const startIndex = markdown.indexOf('`pwndbg`');
+const extractedMarkdown = startIndex !== -1 ? markdown.slice(startIndex) : markdown;
+
+// Parse the extracted Markdown content
+const content = marked.parse(extractedMarkdown);
 ---
 
 <Layout title="Welcome to pwndbg.">
@@ -12,21 +24,8 @@ const latest_tag_name = data.tag_name;
     <h1>Make Debugging Great Again!</h1>
     <img id="logo" src="/logo.png" alt="Logo pwndbg" />
 
-		<p>
-      Pwndbg makes debugging with GDB and LLDB suck less. It improves debugging experience 
-      for low-level developers, hardware hackers, reverse engineers, and exploit developers. 
-      It is useful for security research and provides features crucial for efficient debugging 
-      in the world of low-level programming.
-		</p>
-
     <img src="/demo.gif" alt="Demo pwndbg" />
-
-    <h2>Getting started</h2>
-    <pre><code>
-git clone https://github.com/pwndbg/pwndbg
-cd pwndbg
-./setup.sh
-    </code></pre>
+    <article set:html={content} />
 
 		<p class="instructions">
 			We supports various Linux distributions.<br />
@@ -130,17 +129,4 @@ cd pwndbg
   }
 
 
-pre {
-    display: block;
-    width: auto;
-    overflow: auto;
-    word-wrap: normal;
-}
-
-pre > code {
-    display: block;
-    font-size: 1.0rem;
-    text-indent: 0;
-    white-space: inherit;
-}
 </style>
