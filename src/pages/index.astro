@@ -23,16 +23,7 @@ const content = marked.parse(extractedMarkdown);
 	<main>
     <h1>Make Debugging Great Again!</h1>
     <img id="logo" src="https://pwndbg.re/logo.png" alt="Logo pwndbg" />
-
     <img src="https://pwndbg.re/demo.gif" alt="Demo pwndbg" />
-    <article set:html={content} />
-
-		<p class="instructions">
-			We supports various Linux distributions.<br />
-      Installation can be done also with standalone packaged binaries.<br />
-			<strong>Do you want more?</strong> Please check our code repository and hack with us!
-		</p>
-
 
 		<ul role="list" class="link-card-grid">
 			<Card
@@ -56,6 +47,14 @@ const content = marked.parse(extractedMarkdown);
 				body="Come say hi to our amazing Discord community. ❤️"
 			/>
 		</ul>
+
+    <article set:html={content} />
+
+		<p class="instructions">
+			We supports various Linux distributions.<br />
+      Installation can be done also with standalone packaged binaries.<br />
+			<strong>Do you want more?</strong> Please check our code repository and hack with us!
+		</p>
 	</main>
 </Layout>
 
