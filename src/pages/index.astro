@@ -23,7 +23,11 @@ const content = marked.parse(extractedMarkdown);
 	<main>
     <h1>Make Debugging Great Again!</h1>
     <img id="logo" src="https://pwndbg.re/logo.png" alt="Logo pwndbg" />
-    <img src="https://pwndbg.re/demo.gif" alt="Demo pwndbg" />
+
+		<video autoplay loop muted playsinline alt="Demo pwndbg">
+			<source src="https://pwndbg.re/demo.webm" type="video/webm">
+			<source src="https://pwndbg.re/demo.mp4" type="video/mp4">
+		</video>
 
 		<ul role="list" class="link-card-grid">
 			<Card
@@ -110,12 +114,14 @@ const content = marked.parse(extractedMarkdown);
 		gap: 2rem;
 		padding: 0;
 	}
-  img {
-    max-width:inherit;
+	video {
+		max-width: 100%
+	}
+	img {
+		max-width: inherit;
 		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-		// padding: 1rem;
-		// border-radius: 7px;
-  }
+		padding: 1rem;
+	}
   p {
   }
 

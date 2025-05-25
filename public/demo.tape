@@ -1,6 +1,7 @@
 # https://github.com/charmbracelet/vhs
 
-Output demo.gif
+Output demo.mp4
+Output demo.webm
 
 Set FontSize 20
 Set Width 1920
