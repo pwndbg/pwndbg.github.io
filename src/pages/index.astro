@@ -23,18 +23,17 @@ const content = marked.parse(extractedMarkdown);
 	<main>
     <h1>Make Debugging Great Again!</h1>
     <img id="logo" src="https://pwndbg.re/logo.png" alt="Logo pwndbg" />
-    <img src="https://pwndbg.re/demo.gif" alt="Demo pwndbg" />
+
+		<video autoplay loop muted playsinline alt="Demo pwndbg">
+			<source src="https://pwndbg.re/demo.webm" type="video/webm">
+			<source src="https://pwndbg.re/demo.mp4" type="video/mp4">
+		</video>
 
 		<ul role="list" class="link-card-grid">
 			<Card
 				href="https://pwndbg.github.io/pwndbg"
 				title="Documentation"
-				body="Learn how pwndbg works and explore the official docs."
-			/>
-			<Card
-				href="https://github.com/pwndbg/pwndbg/"
-				title="Source Code"
-				body="Supercharge your debugging experience."
+				body="Learn how to install pwndbg and what you can do with it."
 			/>
 			<Card
 				href="https://github.com/pwndbg/pwndbg.github.io/blob/main/public/CheatSheet.pdf"
@@ -42,9 +41,9 @@ const content = marked.parse(extractedMarkdown);
 				body="The most important and commonly used commands for easy reference."
 			/>
 			<Card
-				href="https://discord.gg/x47DssnGwm"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
+				href="https://github.com/pwndbg/pwndbg/"
+				title="Source Code"
+				body="Supercharge your debugging experience."
 			/>
 		</ul>
 
@@ -62,7 +61,7 @@ const content = marked.parse(extractedMarkdown);
 	main {
 		margin: auto;
 		padding: 1rem;
-		width: 800px;
+		width: 1000px;
 		max-width: calc(100% - 2rem);
 		color: white;
 		font-size: 20px;
@@ -115,12 +114,14 @@ const content = marked.parse(extractedMarkdown);
 		gap: 2rem;
 		padding: 0;
 	}
-  img {
-    max-width:inherit;
+	video {
+		max-width: 100%
+	}
+	img {
+		max-width: inherit;
 		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
 		padding: 1rem;
-		// border-radius: 7px;
-  }
+	}
   p {
   }
 
